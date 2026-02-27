@@ -1,3 +1,12 @@
+Helix Commands
+First Start the backend:
+cd backend      
+source venv/bin/activate  
+uvicorn app:app --reload  
+
+Then start the frontend:
+npm run dev      
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
