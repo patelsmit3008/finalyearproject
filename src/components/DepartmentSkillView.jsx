@@ -1,5 +1,5 @@
 import { Award, Lock, CheckCircle2 } from 'lucide-react';
-import { calculateExperience } from '../data/mockData';
+import { calculateExperience } from '../utils/dateUtils';
 
 /**
  * DepartmentSkillView - Displays department-wise employee skills

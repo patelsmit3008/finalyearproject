@@ -302,6 +302,77 @@ export const employeesWithSkills = [
   },
 ];
 
+// Enhanced employee data with helix scores per skill for PM Portal
+export const employeesWithHelixScores = employeesWithSkills.map(emp => ({
+  ...emp,
+  skills: emp.skills.map(skill => {
+    // Calculate helix score percentage based on enabled status and required points
+    // If enabled, assume they have at least the required points (100%+)
+    // If not enabled, calculate based on a percentage of required points
+    const basePoints = skill.enabled ? skill.requiredPoints : skill.requiredPoints * 0.6;
+    const helixScore = Math.min(100, Math.round((basePoints / skill.requiredPoints) * 100));
+    return {
+      ...skill,
+      points: basePoints,
+      helixScore, // Percentage score
+    };
+  }),
+}));
+
+// Projects data for PM Portal
+export const projects = [
+  {
+    id: 1,
+    name: 'Customer Portal Redesign',
+    requiredSkill: 'React',
+    minHelixScore: 45,
+    status: 'In Progress',
+    assignedEmployees: [1, 6],
+    startDate: '2024-01-15',
+    endDate: '2024-07-15',
+  },
+  {
+    id: 2,
+    name: 'API Integration Platform',
+    requiredSkill: 'Node.js',
+    minHelixScore: 50,
+    status: 'Planning',
+    assignedEmployees: [],
+    startDate: '2024-03-01',
+    endDate: '2024-09-01',
+  },
+  {
+    id: 3,
+    name: 'Cloud Migration',
+    requiredSkill: 'AWS',
+    minHelixScore: 60,
+    status: 'Upcoming',
+    assignedEmployees: [],
+    startDate: '2024-04-01',
+    endDate: '2024-10-01',
+  },
+  {
+    id: 4,
+    name: 'Marketing Campaign Platform',
+    requiredSkill: 'WordPress',
+    minHelixScore: 40,
+    status: 'In Progress',
+    assignedEmployees: [4],
+    startDate: '2024-02-01',
+    endDate: '2024-06-01',
+  },
+  {
+    id: 5,
+    name: 'Sales Analytics Dashboard',
+    requiredSkill: 'Salesforce',
+    minHelixScore: 55,
+    status: 'Planning',
+    assignedEmployees: [],
+    startDate: '2024-03-15',
+    endDate: '2024-08-15',
+  },
+];
+
 // Helper function to calculate years of experience
 export const calculateExperience = (joinDate) => {
   const join = new Date(joinDate);
@@ -632,6 +703,109 @@ export const tasks = [
     linkedInboxItem: null,
     linkedDocument: null,
     createdAt: '2024-03-01T10:00:00',
+  },
+];
+
+// Employee Portal Mock Data
+export const employeePersonalData = {
+  id: 1,
+  name: 'John Doe',
+  email: 'john.doe@company.com',
+  role: 'Software Engineer',
+  department: 'Engineering',
+  performanceScore: 85,
+  helixPoints: 1650,
+  skillsAcquired: [
+    { 
+      name: 'React', 
+      level: 'Advanced', 
+      helixPoints: 1800,
+      nextLevelThreshold: 2200,
+      lastUpdated: '2024-06-15',
+      pointsEarnedFrom: 'Project contributions, code reviews, technical leadership'
+    },
+    { 
+      name: 'Node.js', 
+      level: 'Intermediate', 
+      helixPoints: 1200,
+      nextLevelThreshold: 1800,
+      lastUpdated: '2024-06-10',
+      pointsEarnedFrom: 'Backend development, API design, performance optimization'
+    },
+    { 
+      name: 'TypeScript', 
+      level: 'Intermediate', 
+      helixPoints: 1500,
+      nextLevelThreshold: 2000,
+      lastUpdated: '2024-06-12',
+      pointsEarnedFrom: 'Type-safe implementations, refactoring legacy code'
+    },
+    { 
+      name: 'AWS', 
+      level: 'Beginner', 
+      helixPoints: 800,
+      nextLevelThreshold: 1500,
+      lastUpdated: '2024-06-08',
+      pointsEarnedFrom: 'Cloud deployments, infrastructure setup, certification prep'
+    },
+  ],
+  assignedProjects: [
+    { id: 1, name: 'Customer Portal Redesign', status: 'In Progress', progress: 65 },
+    { id: 2, name: 'API Integration', status: 'In Progress', progress: 40 },
+    { id: 3, name: 'Performance Optimization', status: 'Completed', progress: 100 },
+  ],
+  performanceHistory: [
+    { reviewDate: '2024-01-15', score: 78 },
+    { reviewDate: '2024-02-15', score: 80 },
+    { reviewDate: '2024-03-15', score: 82 },
+    { reviewDate: '2024-04-15', score: 83 },
+    { reviewDate: '2024-05-15', score: 84 },
+    { reviewDate: '2024-06-15', score: 85 },
+  ],
+  skillProgression: [
+    { skill: 'React', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], points: [1200, 1350, 1500, 1600, 1700, 1800] },
+    { skill: 'Node.js', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], points: [800, 900, 1000, 1100, 1150, 1200] },
+    { skill: 'TypeScript', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], points: [1000, 1100, 1200, 1300, 1400, 1500] },
+  ],
+  promotionReadiness: {
+    currentLevel: 'Software Engineer',
+    nextLevel: 'Senior Software Engineer',
+    readinessScore: 72,
+    requirements: [
+      { requirement: 'Minimum 3 years experience', met: true },
+      { requirement: 'Lead at least 2 projects', met: true },
+      { requirement: 'Mentor junior developers', met: false },
+      { requirement: 'Advanced AWS certification', met: false },
+    ],
+  },
+};
+
+// HR Documents for AI Chat (knowledge base)
+export const hrKnowledgeBase = [
+  {
+    id: 1,
+    title: 'Leave Policy',
+    content: 'Employees can take up to 20 days of annual leave per year. Leave requests must be submitted at least 2 weeks in advance. Unused leave can be carried forward up to 5 days to the next calendar year if requested before December 31st.',
+  },
+  {
+    id: 2,
+    title: 'Benefits Guide',
+    content: 'Our health insurance plan covers medical, dental, and vision care. It includes preventive care, emergency services, prescription drugs, and mental health services. The company covers 80% of premiums for employees and 60% for dependents.',
+  },
+  {
+    id: 3,
+    title: 'Remote Work Policy',
+    content: 'Employees can request remote work arrangements. Permanent remote work requires manager approval and HR review. Hybrid arrangements (2-3 days per week) are available for most roles. All remote workers must have a dedicated workspace and reliable internet connection.',
+  },
+  {
+    id: 4,
+    title: 'Performance Review Process',
+    content: 'Performance reviews are conducted quarterly. Employees receive feedback on their goals, achievements, and areas for improvement. Reviews are used to determine promotions, salary adjustments, and professional development opportunities.',
+  },
+  {
+    id: 5,
+    title: 'Expense Reimbursement',
+    content: 'Business expenses can be reimbursed with proper receipts. Submit expense reports within 30 days of incurring the expense. Conference attendance, training courses, and business travel are eligible for reimbursement with prior approval.',
   },
 ];
 

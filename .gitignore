@@ -5,3 +5,4 @@ build
 .cursor
 .vscode
 .DS_Store
+backend/keys/firebase_service_account.json

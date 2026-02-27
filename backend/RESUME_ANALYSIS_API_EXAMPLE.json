@@ -1,0 +1,60 @@
+{
+  "success": true,
+  "resumeStats": {
+    "textLength": 5420,
+    "experienceYears": 3.5
+  },
+  "skills": [
+    "Python",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "SQL",
+    "MongoDB",
+    "AWS",
+    "Docker",
+    "Git",
+    "REST API"
+  ],
+  "domains": [
+    "Web Development",
+    "Backend Development",
+    "Cloud Computing"
+  ],
+  "recommendedProjects": [
+    {
+      "projectId": "proj_123",
+      "title": "E-commerce Platform Redesign",
+      "matchedSkills": [
+        "React",
+        "Node.js",
+        "JavaScript",
+        "SQL"
+      ],
+      "matchScore": 85.5
+    },
+    {
+      "projectId": "proj_456",
+      "title": "Cloud Migration Initiative",
+      "matchedSkills": [
+        "AWS",
+        "Docker",
+        "Python"
+      ],
+      "matchScore": 72.0
+    },
+    {
+      "projectId": "proj_789",
+      "title": "API Gateway Development",
+      "matchedSkills": [
+        "REST API",
+        "Node.js",
+        "MongoDB"
+      ],
+      "matchScore": 65.2
+    }
+  ],
+  "message": "Resume analyzed successfully",
+  "firestore_document_id": "SfE8LSRGqsOTvHjSfGRfOmUqQt22"
+}
+
